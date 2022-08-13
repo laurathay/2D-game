@@ -9,7 +9,7 @@ playerImage.src = 'shadow_dog.png';
 function animate(){
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.fillRect(100,50,100,100);
-    ctx.drawImage(playerImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.drawImage(playerImage, 0, 0, 800, 800, 0, 0,CANVAS_WIDTH, CANVAS_HEIGHT);
     requestAnimationFrame(animate);
 };
 animate();
