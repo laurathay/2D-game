@@ -9,9 +9,6 @@ playerImage.src = 'shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
 
-let frameX = 2;
-let frameY = 5;
-
 let gameFrame = 0;
 const staggerFrames = 5;
 
@@ -24,6 +21,38 @@ const animationStates = [
     {
         name:'jump',
         frames: 7,
+    },
+    {
+        name:'fall',
+        frames: 9,
+    },
+    {
+        name:'run',
+        frames: 7,
+    },
+    {
+        name:'dizzy',
+        frames: 11,
+    },
+    {
+        name:'sit',
+        frames: 5,
+    },
+    {
+        name:'roll',
+        frames: 7,
+    },
+    {
+        name:'bite',
+        frames: 7,
+    },
+    {
+        name:'ko',
+        frames: 12,
+    },
+    {
+        name:'getHit',
+        frames: 4,
     }
 ];
 animationStates.forEach((state, index) => {
@@ -42,8 +71,9 @@ animationStates.forEach((state, index) => {
 function animate(){
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations["idle"].loc.length;
-    frameX = spriteWidth * position;
-    ctx.drawImage(playerImage, frameX, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight)
+    let frameX = spriteWidth * position;
+    let frameY = spriteAnimations["idle"].loc[position].y;
+    ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight)
     
     gameFrame++;
     requestAnimationFrame(animate);
