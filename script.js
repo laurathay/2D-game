@@ -9,7 +9,7 @@ playerImage.src = 'shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
 
-let frameX = 1;
+let frameX = 2;
 let frameY = 5;
 
 function animate(){
