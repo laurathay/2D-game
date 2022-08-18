@@ -1,3 +1,9 @@
+let playerState = 'fall';
+const dropdwon = document.getElementById('animations');
+dropdwon.addEventListener('change', function(e){
+    playerState = e.target.value;
+})
+
 //tu créer ton cadre 
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
@@ -79,9 +85,9 @@ animationStates.forEach((state, index) => {
 //on créer le cadre noir puis on regle la vistesse avec math.floor et cela bouge avec la loc d'en haut 
 function animate(){
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations["ko"].loc.length;
+    let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations[playerState].loc.length;
     let frameX = spriteWidth * position;
-    let frameY = spriteAnimations["ko"].loc[position].y;
+    let frameY = spriteAnimations[playerState].loc[position].y;
     //le dessine dans le cadre attitre
     ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight)
     
