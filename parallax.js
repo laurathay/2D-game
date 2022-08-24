@@ -49,7 +49,11 @@ class Layer {
 }
 
 //on l'appelle ici pour qu'elle prenne en compte le layer qu'on veut
+const layer1 = new Layer(backgroundLayer4, 0.5);
+const layer2 = new Layer(backgroundLayer4, 0.5);
+const layer3 = new Layer(backgroundLayer4, 0.5);
 const layer4 = new Layer(backgroundLayer4, 0.5);
+const layer5 = new Layer(backgroundLayer4, 0.5);
 
 //la methode etant la fonction
 function animate(){
