@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 
-let gameSpeed = 15;
+let gameSpeed = 10;
 
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = 'layer-1.png';
@@ -49,9 +49,9 @@ class Layer {
 }
 
 //on l'appelle ici pour qu'elle prenne en compte le layer qu'on veut
-const layer1 = new Layer(backgroundLayer1, 0.5);
-const layer2 = new Layer(backgroundLayer2, 0.5);
-const layer3 = new Layer(backgroundLayer3, 0.5);
+const layer1 = new Layer(backgroundLayer1, 0.2);
+const layer2 = new Layer(backgroundLayer2, 0.3);
+const layer3 = new Layer(backgroundLayer3, 0.4);
 const layer4 = new Layer(backgroundLayer4, 0.5);
 const layer5 = new Layer(backgroundLayer5, 1);
 
