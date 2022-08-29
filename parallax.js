@@ -19,6 +19,10 @@ backgroundLayer5.src = 'layer-5.png';
 const slider = document.getElementById('slider');
 slider.value = gameSpeed;
 const showGameSpeed = document.getElementById('showGameSpeed');
+showGameSpeed.innerHTML = gameSpeed;
+slider.addEventListener('change', function(e){
+    console.log(e);
+});
 
 //la class possède les propriétés
 class Layer {
