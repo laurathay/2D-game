@@ -4,6 +4,7 @@ const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 
 let gameSpeed = 4;
+let gameFrame = 0;
 
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = 'layer-1.png';
@@ -42,19 +43,16 @@ class Layer {
     update(){
         //on update le speed
         this.speed = gameSpeed * this.speedModifier;
-        if (this.x <= -this.width){
-            this.x = this.width + this.x2 - this.speed;
-        }
-        if (this.x2 <= -this.width){
-            this.x2 = this.width + this.x - this.speed;
-        }
-        this.x = Math.floor(this.x - this.speed);
-        this.x2 = Math.floor(this.x2 - this.speed);
+        // if (this.x <= -this.width){
+        //     this.x = this.width + this.x2 - this.speed;
+        // }
+        // this.x = Math.floor(this.x - this.speed);
+        this.x = gameFrame % this.width;
     }
     draw() {
         //on le dessine selon les coordonnées
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
+        ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
     }
 }
 
@@ -75,6 +73,7 @@ function animate(){
         object.update();
         object.draw();
     });
+    gameFrame--;
     requestAnimationFrame(animate); 
 };
 
