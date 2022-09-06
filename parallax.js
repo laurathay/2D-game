@@ -4,7 +4,7 @@ const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 700;
 
 let gameSpeed = 4;
-let gameFrame = 0;
+// let gameFrame = 0;
 
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = 'layer-1.png';
@@ -17,7 +17,8 @@ backgroundLayer4.src = 'layer-4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = 'layer-5.png';
 
-//pour changer de vitesse 
+window.addEventListener('load', function(){
+    //pour changer de vitesse 
 const slider = document.getElementById('slider');
 slider.value = gameSpeed;
 const showGameSpeed = document.getElementById('showGameSpeed');
@@ -47,7 +48,8 @@ class Layer {
         //     this.x = this.width + this.x2 - this.speed;
         // }
         // this.x = Math.floor(this.x - this.speed);
-        this.x = gameFrame % this.width;
+        //pour quil bouge pas tous a la meme vitesse rajouter this.speed
+        this.x = gameFrame * this.speed % this.width;
     }
     draw() {
         //on le dessine selon les coordonnées
@@ -73,8 +75,10 @@ function animate(){
         object.update();
         object.draw();
     });
-    gameFrame--;
+    // gameFrame--;
     requestAnimationFrame(animate); 
 };
 
 animate();
+})
+
