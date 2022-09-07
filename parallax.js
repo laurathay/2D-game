@@ -1,3 +1,4 @@
+//tu créer ton contour comme d'hab
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 800;
@@ -6,6 +7,7 @@ const CANVAS_HEIGHT = canvas.height = 700;
 let gameSpeed = 4;
 // let gameFrame = 0;
 
+//transforme les images en background layer
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = 'layer-1.png';
 const backgroundLayer2 = new Image();
@@ -17,6 +19,7 @@ backgroundLayer4.src = 'layer-4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = 'layer-5.png';
 
+//lorsque ca load uniquement on change les vitesses des layers
 window.addEventListener('load', function(){
     //pour changer de vitesse 
 const slider = document.getElementById('slider');
@@ -58,13 +61,14 @@ class Layer {
     }
 }
 
-//on l'appelle ici pour qu'elle prenne en compte le layer qu'on veut
+//on l'appelle ici pour qu'elle prenne en compte le layer qu'on veut à la vitesse qu'on veut
 const layer1 = new Layer(backgroundLayer1, 0.2);
 const layer2 = new Layer(backgroundLayer2, 0.4);
 const layer3 = new Layer(backgroundLayer3, 0.6);
 const layer4 = new Layer(backgroundLayer4, 0.8);
 const layer5 = new Layer(backgroundLayer5, 1);
 
+//on en fait un tableau pour pas répéter de code
 const gameObjects = [layer1, layer2, layer3, layer4, layer5];
 
 //la methode etant la fonction
